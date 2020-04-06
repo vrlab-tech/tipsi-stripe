@@ -705,6 +705,8 @@ RCT_EXPORT_METHOD(createSourceWithParams:(NSDictionary *)params
     if ([sourceType isEqualToString:@"card"]) {
         sourceParams = [STPSourceParams cardParamsWithCard:[self extractCardParamsFromDictionary:params]];
     }
+    
+    sourceParams.metadata = params[@"metadata"];
 
     STPAPIClient* stripeAPIClient = [self newAPIClient];
 
